@@ -99,4 +99,27 @@ public class Directions {
                 return Direction.L;
         }
     }
+
+    public static Direction Turn(Direction currentDirection) {
+        switch (currentDirection) {
+            case Direction.L:
+                return Direction.R;
+            case Direction.LLU:
+                return Direction.RUU;
+            case Direction.LU:
+                return Direction.RU;
+            case Direction.LUU:
+                return Direction.RRU;
+            case Direction.RUU:
+                return Direction.LLU;
+            case Direction.RU:
+                return Direction.LU;
+            case Direction.RRU:
+                return Direction.LUU;
+            case Direction.R:
+                return Direction.L;
+            default:
+                return Direction.U;
+        }
+    }
 }

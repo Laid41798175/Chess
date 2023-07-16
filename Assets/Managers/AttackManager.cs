@@ -12,7 +12,7 @@ public class AttackManager : MonoBehaviour {
     [SerializeField] private int hp = 100;
     [SerializeField] private int enemyHp = 100;
 
-    public void UnitsFought(GameObject piece, GameObject enemy, bool isPlayerAttacked) {
+    public void UnitsFought(GameObject piece, GameObject enemy) {
         int piecePower = piece.GetComponent<Piece>().GetPower();
         int enemyPower = piece.GetComponent<Enemy>().GetPower();
         if (piecePower > enemyPower) {
