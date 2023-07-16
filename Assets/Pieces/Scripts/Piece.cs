@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Unit : MonoBehaviour, IUnit {
+public class Piece : MonoBehaviour {
 
     [Header("Read Only")]
     [SerializeField] private string nomenclature;
@@ -12,6 +12,14 @@ public class Unit : MonoBehaviour, IUnit {
     [SerializeField] private Direction currentDirection;
     [SerializeField] private int power;
     [SerializeField] private int speed;
+
+    public int GetPower() {
+        return power;
+    }
+
+    public void SetPower(int power) {
+        this.power = power;
+    }
 
     public void Setting(int x, int y, Card card) {
         nomenclature = card.nomenclature;
@@ -35,5 +43,12 @@ public class Unit : MonoBehaviour, IUnit {
 
     }
 
+    public void Placed() {
+        
+    }
+
+    public void Killed() {
+        
+    }
 
 }
