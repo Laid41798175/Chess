@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour {
 
     public void Move() {
         foreach (GameObject enemy in enemies) {
-            // TODO
+            enemy.GetComponent<Enemy>().Move();
         }
     }
 

@@ -9,6 +9,11 @@ public class IncidentManager : MonoBehaviour {
         Inst = this;
     }
 
+    [Header("Statistics")]
+    [SerializeField] private int playerUnitDestroyed = 0;
+    [SerializeField] private int enemyUnitDestroyed = 0;
+    [SerializeField] private int unitsFought = 0;
+
     public void GameOver(){
         Debug.Log("Game Over...");
     }
@@ -21,15 +26,17 @@ public class IncidentManager : MonoBehaviour {
         PieceManager.Inst.PlayerUnitDestroyed(piece);
         BoardManager.Inst.Remove(piece);
         Destroy(piece);
+        playerUnitDestroyed += 1;
     }
 
     public void EnemyUnitDestroyed(GameObject enemy) {
         EnemyManager.Inst.EnemyUnitDestroyed(enemy);
         BoardManager.Inst.Remove(enemy);
         Destroy(enemy);
+        enemyUnitDestroyed += 1;
     }
 
     public void UnitsFought(GameObject piece, GameObject enemy) {
-        
+        unitsFought += 1;
     }
 }

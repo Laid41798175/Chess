@@ -9,6 +9,7 @@ public class AttackManager : MonoBehaviour {
         Inst = this;
     }
 
+    [Header("hp")]
     [SerializeField] private int hp = 100;
     [SerializeField] private int enemyHp = 100;
 
@@ -16,18 +17,16 @@ public class AttackManager : MonoBehaviour {
         int piecePower = piece.GetComponent<Piece>().GetPower();
         int enemyPower = piece.GetComponent<Enemy>().GetPower();
         if (piecePower > enemyPower) {
-            IncidentManager.Inst.UnitsFought(piece, enemy);
             IncidentManager.Inst.EnemyUnitDestroyed(enemy);
             piece.GetComponent<Piece>().SetPower(piecePower - enemyPower);
         } else if (piecePower == enemyPower) {
-            IncidentManager.Inst.UnitsFought(piece, enemy);
             IncidentManager.Inst.EnemyUnitDestroyed(enemy);
             IncidentManager.Inst.PlayerUnitDestroyed(piece);
         } else {
-            IncidentManager.Inst.UnitsFought(piece, enemy);
             IncidentManager.Inst.PlayerUnitDestroyed(piece);
             enemy.GetComponent<Enemy>().SetPower(enemyPower - piecePower);
         }
+        IncidentManager.Inst.UnitsFought(piece, enemy);
     }
 
     public void PlayerAttacked(GameObject enemy) {

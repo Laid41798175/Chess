@@ -23,7 +23,7 @@ public class PieceManager : MonoBehaviour {
 
     public void Move() {
         foreach (GameObject piece in pieces) {
-            // TODO
+            piece.GetComponent<Piece>().Move();
         }
     }
 
